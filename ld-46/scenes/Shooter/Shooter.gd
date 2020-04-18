@@ -51,5 +51,6 @@ func _process(delta):
 	sprite.rotation = -cur_rot
 	
 	if spawn_block:
-		print("sdfsd")
-		arena.spawn_block(position + shooter_pos)
+		var pos = position + shooter_pos
+		var dir = -shooter_pos.normalized()
+		arena.spawn_block(pos, dir, -cur_rot)
