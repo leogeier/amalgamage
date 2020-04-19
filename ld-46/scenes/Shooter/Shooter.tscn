@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/Block/block.png" type="Texture" id=1]
+[ext_resource path="res://scenes/BlockSprite/block.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Shooter/Shooter.gd" type="Script" id=2]
 
 [node name="Shooter" type="Node2D"]

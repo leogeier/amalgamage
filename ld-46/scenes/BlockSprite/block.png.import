@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/block.png-cb0147ffa20cdf5820714ebd96d043d1.stex"
+path="res://.import/block.png-6726132cd44cccf45588e12a6e6af654.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Block/block.png"
-dest_files=[ "res://.import/block.png-cb0147ffa20cdf5820714ebd96d043d1.stex" ]
+source_file="res://scenes/BlockSprite/block.png"
+dest_files=[ "res://.import/block.png-6726132cd44cccf45588e12a6e6af654.stex" ]
 
 [params]
 
