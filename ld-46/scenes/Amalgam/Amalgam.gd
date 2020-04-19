@@ -115,10 +115,11 @@ func handle_block_collision(_amalgam, block):
 	
 	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
-	#apply_impulse(impulse_offset, block.direction * 10)
+	apply_impulse(impulse_offset, block.direction * 10)
 
 func _ready():
 	mass = 0.00001
+	inertia = 1000
 	add_block_local("center", Vector2(0,0), false)
 
 
