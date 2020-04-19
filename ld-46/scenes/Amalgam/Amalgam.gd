@@ -12,8 +12,8 @@ const base_polygon = PoolVector2Array([ \
 	Vector2(0,0), Vector2(0,0), Vector2(0,0)])
 
 
-func add_block(type, world_pos):
-	pass
+func add_block_global(type, world_pos):
+	add_block_local(type, to_local(world_pos))
 
 func add_block_local(type, local_pos):
 	# Create sprite
@@ -57,6 +57,9 @@ func local_to_grid(pos):
 
 func grid_to_local(cell):
 	return cell * cell_dim
+
+func handle_block_collision(_amalgam, block):
+	add_block_global(block.type, block.position)
 
 func _ready():
 	add_block_local("center", Vector2(0,0))

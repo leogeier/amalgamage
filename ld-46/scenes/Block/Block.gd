@@ -1,14 +1,16 @@
-extends KinematicBody2D
+extends Area2D
 
 
 var velocity = 0
 var direction = Vector2()
+var type = "normal"
 
 
 func _ready():
-	pass # Replace with function body.
+	var amalgam_group = get_tree().get_nodes_in_group("amalgam")
+	if !amalgam_group.empty():
+		var amalgam = amalgam_group[0]
+		connect("body_entered", amalgam, "handle_block_collision", [self])
 
 func _process(delta):
-	var collision = move_and_collide(velocity * direction * delta)
-	if collision:
-		print("collided!")
+	position +=  velocity * direction * delta
