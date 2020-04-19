@@ -45,11 +45,12 @@ func add_block_local(type, local_pos, correct_pos=true):
 	block_grid[grid_pos] = block_cell
 	
 	mass += block_weight
+	recalculate_collision_shape()
+	# Dirty hacks to ensure rotation around center of mass
 	var grid_size = block_grid.size()
 	var new_center_sum = last_center_sum + centered_local_pos
 	var new_shape_offset = new_center_sum / grid_size
 	var delta_offset = new_shape_offset - last_shape_offset
-	recalculate_collision_shape()
 	$Sprites.position -= delta_offset
 	$CollisionPolygon2D.position -= delta_offset
 	position += delta_offset
@@ -89,6 +90,20 @@ func remove_block_in_cell(remove_cell_pos):
 	
 	block_grid = remain
 	recalculate_collision_shape()
+	
+	mass -= block_weight
+	# Dirty hacks to ensure rotation around center of mass
+	# TODO: less duplication
+	var grid_size = block_grid.size()
+	var new_center_sum = last_center_sum - grid_to_local(remove_cell_pos)
+	var new_shape_offset = new_center_sum / grid_size
+	var delta_offset = new_shape_offset - last_shape_offset
+	recalculate_collision_shape()
+	$Sprites.position -= delta_offset
+	$CollisionPolygon2D.position -= delta_offset
+	position += delta_offset
+	last_center_sum = new_center_sum
+	last_shape_offset = new_shape_offset
 
 func recalculate_collision_shape():
 	var new_polygon = base_polygon

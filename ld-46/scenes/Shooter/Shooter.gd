@@ -25,9 +25,9 @@ func _ready():
 func _process(delta):
 	# Input
 	if Input.is_action_pressed("ui_left"):
-		cur_rot += velocity * delta
-	elif Input.is_action_pressed("ui_right"):
 		cur_rot -= velocity * delta
+	elif Input.is_action_pressed("ui_right"):
+		cur_rot += velocity * delta
 	
 	var cur_time = OS.get_ticks_msec()
 	var spawn_block = false
