@@ -135,6 +135,7 @@ func handle_block_collision(_amalgam, block):
 	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
 	apply_impulse(impulse_offset, block.direction * 10)
+	Score.score += 1
 
 func _ready():
 	mass = 0.00001
@@ -160,4 +161,4 @@ func _process(delta):
 		else:
 			$GameOverSprite.position = to_local(Vector2())
 		if game_over_start + game_over_duration < OS.get_ticks_msec():
-			print("switch scenes")
+			get_tree().change_scene("res://scenes/GameOver/GameOver.tscn")

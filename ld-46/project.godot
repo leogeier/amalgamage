@@ -26,6 +26,10 @@ boot_splash/image="res://scenes/other resources/splash.png"
 boot_splash/use_filter=false
 config/icon="res://icon.png"
 
+[autoload]
+
+Score="*res://scenes/other resources/Score.gd"
+
 [display]
 
 window/size/width=200
