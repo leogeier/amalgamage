@@ -7,4 +7,4 @@ func _ready():
 
 func _process(delta):
 	if Input.is_action_just_pressed("shoot"):
-		get_tree().change_scene("res://scenes/Arena/Arena.tscn")
+		get_tree().change_scene("res://scenes/Title/Title.tscn")
