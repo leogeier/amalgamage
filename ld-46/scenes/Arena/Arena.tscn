@@ -34,3 +34,15 @@ active = false
 [node name="SpawnControllerTimer" type="Timer" parent="."]
 wait_time = 20.0
 autostart = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 100, 100 )
+amount = 15
+emission_shape = 1
+emission_sphere_radius = 70.0
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+angular_velocity = 54.19
+angular_velocity_random = 0.53
+scale_amount = 0.5
