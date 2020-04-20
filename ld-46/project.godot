@@ -22,7 +22,7 @@ _global_script_class_icons={
 
 config/name="ldj-46"
 config/description="Entry to Ludum Dare 46"
-run/main_scene="res://scenes/Arena/Arena.tscn"
+run/main_scene="res://scenes/Title/Title.tscn"
 boot_splash/image="res://scenes/other resources/splash.png"
 boot_splash/use_filter=false
 config/icon="res://scenes/other resources/icon.png"
