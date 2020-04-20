@@ -16,11 +16,11 @@ func shake(duration = 100):
 
 func spawn_block(pos, dir, rot):
 	var new_block = block.instance()
+	add_child(new_block)
 	new_block.position = pos
 	new_block.rotation = rot
 	new_block.direction = dir
 	new_block.velocity = block_velocity
-	add_child(new_block)
 
 func _process(delta):
 	if screenshake_start != null:

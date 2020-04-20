@@ -34,6 +34,7 @@ func _process(delta):
 		TransitionSounds.play_hit()
 		get_tree().change_scene("res://scenes/Title/Title.tscn")
 	
+	# duplicate code from arena
 	if screenshake_start != null:
 		if screenshake_start + screenshake_duration < OS.get_ticks_msec():
 			screenshake_start = null

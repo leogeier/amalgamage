@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/Amalgam/Amalgam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Cursor/Cursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Border/Border.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/EnemySpawner/EnemySpawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/SpawnController/SpawnController.tscn" type="PackedScene" id=6]
 
 [node name="Arena" type="Node2D" groups=[
 "arena",
@@ -27,5 +27,7 @@ num_sprites = 70
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
 
-[node name="EnemySpawner" parent="." instance=ExtResource( 6 )]
-position = Vector2( 73.6741, 73.8936 )
+[node name="SpawnController" parent="." instance=ExtResource( 6 )]
+position = Vector2( 100, 100 )
+
+[node name="SpawnControllerTimer" type="Timer" parent="."]
