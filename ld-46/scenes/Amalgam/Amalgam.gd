@@ -7,7 +7,7 @@ var block_grid = {}
 var last_shape_offset = Vector2(0,0)
 var last_center_sum = Vector2(0,0)
 
-const cell_length = 5.0
+const cell_length = 8.0
 const cell_dim = Vector2(cell_length, cell_length)
 const block_sprite = preload("res://scenes/BlockSprite/BlockSprite.tscn")
 const base_polygon = PoolVector2Array([ \
