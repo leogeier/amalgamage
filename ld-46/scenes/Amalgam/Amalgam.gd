@@ -31,7 +31,7 @@ func add_block_local(type, local_pos, correct_pos=true):
 	var grid_pos = local_to_grid(local_pos)
 	if block_grid.has(grid_pos):
 		print("Warning: Attempted to add block to filled cell. local_pos: ", local_pos, ", grid_pos: ", grid_pos)
-		return
+		return false
 	
 	if correct_pos:
 		grid_pos = correct_grid_pos(grid_pos)
@@ -60,6 +60,7 @@ func add_block_local(type, local_pos, correct_pos=true):
 	position += delta_offset
 	last_center_sum = new_center_sum
 	last_shape_offset = new_shape_offset
+	return true
 
 func correct_grid_pos(grid_pos):
 	var empty = []
@@ -134,9 +135,10 @@ func handle_block_collision(_amalgam, block):
 	
 	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
-	apply_impulse(impulse_offset, block.direction * 10)
 	$AttachSound.play()
-	Score.score += 1
+	var success = apply_impulse(impulse_offset, block.direction * 10)
+	if success:
+		Score.score += 1
 
 func _ready():
 	mass = 0.00001
