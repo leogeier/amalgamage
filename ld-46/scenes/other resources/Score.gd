@@ -13,6 +13,6 @@ func get_score():
 func reset_score():
 	score = 1
 
-func _ready():
+func _process(delta):
 	# Should probably not be in here
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

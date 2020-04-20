@@ -17,13 +17,14 @@ func shake(duration = 100):
 	screenshake_start = OS.get_ticks_msec()
 	screenshake_duration = duration
 
-func spawn_block(pos, dir, rot):
+func spawn_block(pos, dir, rot, force):
 	var new_block = block.instance()
 	add_child(new_block)
 	new_block.position = pos
 	new_block.rotation = rot
 	new_block.direction = dir
 	new_block.velocity = block_velocity
+	new_block.force = force
 
 func add_spawn_controller():
 	var new_controller = $ProtoSpawnController.duplicate()

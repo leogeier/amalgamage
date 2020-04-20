@@ -51,7 +51,7 @@ func add_block_local(type, local_pos, sprite_idx, correct_pos=true):
 		BlockCell.new(grid_pos, type, new_block_sprite, cell_length)
 	block_grid[grid_pos] = block_cell
 	
-	mass += block_weight
+	#mass += block_weight
 	recalculate_collision_shape()
 	# Dirty hacks to ensure rotation around center of mass
 	var grid_size = block_grid.size()
@@ -99,7 +99,7 @@ func remove_block_in_cell(remove_cell_pos):
 	block_grid = remain
 	recalculate_collision_shape()
 	
-	mass -= block_weight
+	#mass -= block_weight
 	# Dirty hacks to ensure rotation around center of mass
 	# TODO: less duplication
 	var grid_size = block_grid.size()
@@ -136,16 +136,18 @@ func handle_block_collision(_amalgam, block):
 	var success = add_block_global(block.type, block_pos, block.get_sprite_idx())
 	block.schedule_removal()
 	
-	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
-	$AttachSound.play()
-	apply_impulse(impulse_offset, block.direction * 10)
 	if success:
-		Score.score += 1
+		$AttachSound.play()
 		arena.shake()
+		
+		var impulse_offset = to_local(block.to_global(block_pos))
+		apply_impulse(impulse_offset, block.direction * block.force)
+		
+		Score.score += 1
 
 func _ready():
-	mass = 0.00001
+	#mass = 0.00001
 	inertia = 1000
 	add_block_local("center", Vector2(0,0), randi() % 6, false)
 	

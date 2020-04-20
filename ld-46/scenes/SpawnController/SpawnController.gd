@@ -8,6 +8,7 @@ export(float) var delay_reduction = 0.5
 export(bool) var active = true setget set_active
 export(float) var radius = 90.0
 export(String) var kind = "block"
+export(float) var block_force = 10
 
 var amalgam
 
@@ -29,6 +30,7 @@ func new_spawn():
 	var new_spawner = enemy_spawner.instance()
 	add_child(new_spawner)
 	new_spawner.position = spawner_pos
+	new_spawner.block_force = block_force
 	
 	var dir = (amalgam.global_position - to_global(spawner_pos)).normalized()
 	new_spawner.start_spawn(kind, dir)

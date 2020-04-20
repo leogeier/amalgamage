@@ -6,6 +6,7 @@ var direction = Vector2()
 var sprite_rot_speed = 0
 var type = "normal"
 var remove = false
+var force = 10
 
 const max_rot_speed = .05
 

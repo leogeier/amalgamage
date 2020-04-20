@@ -5,6 +5,7 @@ export(float) var radius = 75
 # in radians
 export(float) var velocity = 2
 export var shoot_delay = 1000
+export(float) var block_force = 10
 
 # in radians
 var cur_rot = 0
@@ -54,5 +55,5 @@ func _process(delta):
 		var pos = position + shooter_pos
 		var shooter_rot = sprite.rotation
 		var dir = Vector2(1,0).rotated(shooter_rot)
-		arena.spawn_block(pos, dir, -cur_rot)
+		arena.spawn_block(pos, dir, -cur_rot, block_force)
 		$ShootSound.play()

@@ -7,6 +7,7 @@ var kind
 var dir
 var arena
 var remove = false
+var block_force
 
 const blink_period = 800
 
@@ -19,7 +20,7 @@ func start_spawn(new_kind, new_dir, new_warn_dur = 4000, angle_var = .4):
 	kind = new_kind
 
 func spawn_block():
-	arena.spawn_block(global_position	, dir, 0)
+	arena.spawn_block(global_position	, dir, 0, block_force)
 
 func schedule_removal():
 	remove = true

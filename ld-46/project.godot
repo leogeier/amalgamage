@@ -32,6 +32,10 @@ config/icon="res://scenes/other resources/icon.png"
 Score="*res://scenes/other resources/Score.gd"
 TransitionSounds="*res://scenes/TransitionSounds/TransitionSounds.tscn"
 
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+
 [display]
 
 window/size/width=200
