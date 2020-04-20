@@ -24,10 +24,10 @@ const offsets = [ \
 const block_weight = 1
 
 
-func add_block_global(type, world_pos):
-	add_block_local(type, $CollisionPolygon2D.to_local(world_pos))
+func add_block_global(type, world_pos, sprite_idx):
+	return add_block_local(type, $CollisionPolygon2D.to_local(world_pos), sprite_idx)
 
-func add_block_local(type, local_pos, correct_pos=true):
+func add_block_local(type, local_pos, sprite_idx, correct_pos=true):
 	var grid_pos = local_to_grid(local_pos)
 	if block_grid.has(grid_pos):
 		print("Warning: Attempted to add block to filled cell. local_pos: ", local_pos, ", grid_pos: ", grid_pos)
@@ -40,6 +40,8 @@ func add_block_local(type, local_pos, correct_pos=true):
 	var new_block_sprite = block_sprite.instance()
 	var centered_local_pos = grid_to_local(grid_pos)
 	new_block_sprite.position = centered_local_pos
+	new_block_sprite.rotation = PI / 2.0 * (randi() % 4)
+	new_block_sprite.sprite_idx = sprite_idx
 	#new_block_sprite.hide()
 	$Sprites.add_child(new_block_sprite)
 	
@@ -130,20 +132,20 @@ func grid_to_local(cell):
 
 func handle_block_collision(_amalgam, block):
 	var block_pos = block.position
-	add_block_global(block.type, block_pos)
+	var success = add_block_global(block.type, block_pos, block.get_sprite_idx())
 	block.schedule_removal()
 	
 	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
 	$AttachSound.play()
-	var success = apply_impulse(impulse_offset, block.direction * 10)
+	apply_impulse(impulse_offset, block.direction * 10)
 	if success:
 		Score.score += 1
 
 func _ready():
 	mass = 0.00001
 	inertia = 1000
-	add_block_local("center", Vector2(0,0), false)
+	add_block_local("center", Vector2(0,0), randi() % 6, false)
 	var border_group = get_tree().get_nodes_in_group("border")
 	if !border_group.empty():
 		border = border_group[0]

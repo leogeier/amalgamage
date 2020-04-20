@@ -10,6 +10,9 @@ var remove = false
 const max_rot_speed = .05
 
 
+func get_sprite_idx():
+	return $BlockSprite.sprite_idx
+
 func schedule_removal():
 	remove = true
 
