@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/BlockSprite/block.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Shooter/shooter.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Shooter/Shooter.gd" type="Script" id=2]
 
 [node name="Shooter" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="ActualSprite" type="Sprite" parent="Sprite"]
+rotation = 1.5708
 texture = ExtResource( 1 )

@@ -47,10 +47,11 @@ func _process(delta):
 	var shooter_pos = \
 		Vector2(sin(cur_rot) * radius, cos(cur_rot) * radius)
 	
+	sprite.look_at(get_global_mouse_position())
 	sprite.position = shooter_pos
-	sprite.rotation = -cur_rot
 	
 	if spawn_block:
 		var pos = position + shooter_pos
-		var dir = -shooter_pos.normalized()
+		var shooter_rot = sprite.rotation
+		var dir = Vector2(1,0).rotated(shooter_rot)
 		arena.spawn_block(pos, dir, -cur_rot)
