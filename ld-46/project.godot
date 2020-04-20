@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="ldj-46"
+config/name="Amalgamage"
 config/description="Entry to Ludum Dare 46"
 run/main_scene="res://scenes/Title/Title.tscn"
 boot_splash/image="res://scenes/other resources/splash.png"
