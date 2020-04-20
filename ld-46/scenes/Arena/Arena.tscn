@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scenes/Shooter/Shooter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Arena/Arena.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Amalgam/Amalgam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Cursor/Cursor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/Border/Border.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/EnemySpawner/EnemySpawner.tscn" type="PackedScene" id=6]
 
 [node name="Arena" type="Node2D" groups=[
 "arena",
 ]]
 script = ExtResource( 2 )
+shake_strength = 2.0
 
 [node name="Shooter" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 100 )
@@ -24,3 +26,6 @@ radius = 70.0
 num_sprites = 70
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
+
+[node name="EnemySpawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 73.6741, 73.8936 )

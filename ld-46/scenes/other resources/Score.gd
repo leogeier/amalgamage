@@ -11,4 +11,8 @@ func get_score():
 	return score
 
 func reset_score():
-	score = 0
+	score = 1
+
+func _ready():
+	# Should probably not be in here
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
