@@ -5,7 +5,7 @@ export(float) var spawn_delay = 10.0
 export(float) var min_delay = 4.5
 export(float) var delay_variation = 0.8
 export(float) var delay_reduction = 0.5
-export(bool) var active = true
+export(bool) var active = true setget set_active
 export(float) var radius = 90.0
 export(String) var kind = "block"
 
@@ -13,6 +13,10 @@ var amalgam
 
 const enemy_spawner = preload("res://scenes/EnemySpawner/EnemySpawner.tscn")
 
+
+func set_active(new_val):
+	active = new_val
+	$SpawnTimer.paused = !new_val
 
 func handle_spawn_timer():
 	new_spawn()

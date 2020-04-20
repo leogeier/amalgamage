@@ -14,7 +14,6 @@ const blink_period = 800
 func start_spawn(new_kind, new_dir, new_warn_dur = 4000, angle_var = .4):
 	dir = new_dir.rotated(rand_range(-angle_var, angle_var))
 	$Arrow.look_at(global_position + dir * 5)
-	print(dir)
 	spawn_start = OS.get_ticks_msec()
 	warn_duration = new_warn_dur
 	kind = new_kind

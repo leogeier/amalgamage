@@ -27,7 +27,10 @@ num_sprites = 70
 
 [node name="Cursor" parent="." instance=ExtResource( 4 )]
 
-[node name="SpawnController" parent="." instance=ExtResource( 6 )]
+[node name="ProtoSpawnController" parent="." instance=ExtResource( 6 )]
 position = Vector2( 100, 100 )
+active = false
 
 [node name="SpawnControllerTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
