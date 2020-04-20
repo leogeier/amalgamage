@@ -1,19 +1,26 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/Shooter/Shooter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/Arena/Arena.gd" type="Script" id=2]
 [ext_resource path="res://scenes/Amalgam/Amalgam.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Cursor/Cursor.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Border/Border.tscn" type="PackedScene" id=5]
 
 [node name="Arena" type="Node2D" groups=[
 "arena",
 ]]
 script = ExtResource( 2 )
 
-[node name="Cursor" parent="." instance=ExtResource( 4 )]
-
 [node name="Shooter" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 100 )
+radius = 85.0
 
 [node name="Amalgam" parent="." instance=ExtResource( 3 )]
 position = Vector2( 100, 100 )
+
+[node name="Border" parent="." instance=ExtResource( 5 )]
+position = Vector2( 100, 100 )
+radius = 70.0
+num_sprites = 70
+
+[node name="Cursor" parent="." instance=ExtResource( 4 )]

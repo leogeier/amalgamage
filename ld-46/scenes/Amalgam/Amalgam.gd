@@ -6,6 +6,10 @@ extends RigidBody2D
 var block_grid = {}
 var last_shape_offset = Vector2(0,0)
 var last_center_sum = Vector2(0,0)
+var game_over = false
+var game_over_start
+var game_over_duration = 3000
+var border
 
 const cell_length = 8.0
 const cell_dim = Vector2(cell_length, cell_length)
@@ -136,7 +140,24 @@ func _ready():
 	mass = 0.00001
 	inertia = 1000
 	add_block_local("center", Vector2(0,0), false)
+	var border_group = get_tree().get_nodes_in_group("border")
+	if !border_group.empty():
+		border = border_group[0]
 
-
-#func _process(delta):
-#	pass
+func _process(delta):
+	if border == null:
+		return
+	
+	if !game_over and \
+		(border.position - position).length() > border.radius:
+		game_over = true
+		$GameOverSprite.show()
+		game_over_start = OS.get_ticks_msec()
+	
+	if game_over:
+		if $GameOverSprite.scale.x < 3:
+			$GameOverSprite.scale *= 1.15
+		else:
+			$GameOverSprite.position = to_local(Vector2())
+		if game_over_start + game_over_duration < OS.get_ticks_msec():
+			print("switch scenes")
