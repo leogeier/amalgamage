@@ -57,3 +57,5 @@ func _process(delta):
 		var dir = Vector2(1,0).rotated(shooter_rot)
 		arena.spawn_block(pos, dir, -cur_rot, block_force)
 		$ShootSound.play()
+		$ReloadIndicator.frame = 0
+		$ReloadIndicator.play()

@@ -21,6 +21,8 @@ autostart = true
 [node name="Shooter" parent="." instance=ExtResource( 1 )]
 position = Vector2( 100, 100 )
 radius = 85.0
+velocity = 2.0
+shoot_delay = 1000
 block_force = 15.0
 
 [node name="Amalgam" parent="." instance=ExtResource( 3 )]
