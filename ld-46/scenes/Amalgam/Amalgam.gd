@@ -135,6 +135,7 @@ func handle_block_collision(_amalgam, block):
 	var impulse_offset = to_local(block.to_global(block_pos))
 	# TODO better impulse calc
 	apply_impulse(impulse_offset, block.direction * 10)
+	$AttachSound.play()
 	Score.score += 1
 
 func _ready():
@@ -153,6 +154,7 @@ func _process(delta):
 		(border.position - position).length() > border.radius:
 		game_over = true
 		$GameOverSprite.show()
+		$GameOverSound.play()
 		game_over_start = OS.get_ticks_msec()
 	
 	if game_over:

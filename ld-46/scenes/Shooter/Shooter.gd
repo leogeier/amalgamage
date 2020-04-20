@@ -55,3 +55,4 @@ func _process(delta):
 		var shooter_rot = sprite.rotation
 		var dir = Vector2(1,0).rotated(shooter_rot)
 		arena.spawn_block(pos, dir, -cur_rot)
+		$ShootSound.play()

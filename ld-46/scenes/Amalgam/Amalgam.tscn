@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Amalgam/Amalgam.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Amalgam/circle.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Amalgam/attach.wav" type="AudioStream" id=3]
+[ext_resource path="res://scenes/Amalgam/gameover.wav" type="AudioStream" id=4]
 
 [node name="Amalgam" type="RigidBody2D" groups=[
 "amalgam",
@@ -15,5 +17,11 @@ polygon = PoolVector2Array( 0, 0, 0, 0, 0, 0 )
 
 [node name="GameOverSprite" type="Sprite" parent="."]
 visible = false
-scale = Vector2( 0.00338998, 0.00338998 )
+scale = Vector2( 0.0534395, 0.0534395 )
 texture = ExtResource( 2 )
+
+[node name="AttachSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
