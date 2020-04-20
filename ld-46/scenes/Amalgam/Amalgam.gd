@@ -165,7 +165,9 @@ func _process(delta):
 	
 	if !game_over and \
 		(border.position - position).length() > border.radius:
+		# these two could probably be the same variable
 		game_over = true
+		Score.game_over = true
 		$GameOverSprite.show()
 		$GameOverSound.play()
 		game_over_start = OS.get_ticks_msec()

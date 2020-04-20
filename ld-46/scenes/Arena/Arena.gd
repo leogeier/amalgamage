@@ -46,6 +46,7 @@ func _process(delta):
 
 func _ready():
 	Score.reset_score()
+	Score.game_over = false
 	randomize()
 	
 	add_spawn_controller()

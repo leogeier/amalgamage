@@ -2,6 +2,7 @@ extends Node
 
 
 var score: int = 0 setget set_score, get_score
+var game_over = false
 
 
 func set_score(new_val):

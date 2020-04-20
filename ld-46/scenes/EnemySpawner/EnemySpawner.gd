@@ -38,13 +38,15 @@ func _process(delta):
 		if elapsedTime > warn_duration:
 			if kind == "block":
 				spawn_block()
-			$SpawnSound.play()
+			if !Score.game_over:
+				$SpawnSound.play()
 			hide()
 			spawn_start = null
 		else:
 			if elapsedTime % blink_period < blink_period / 2:
 				if !is_visible():
-					$WarnSound.play()
+					if !Score.game_over:
+						$WarnSound.play()
 				show()
 			else:
 				hide()
