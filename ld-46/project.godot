@@ -29,6 +29,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Score="*res://scenes/other resources/Score.gd"
+TransitionSounds="*res://scenes/TransitionSounds/TransitionSounds.tscn"
 
 [display]
 

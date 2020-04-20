@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/Amalgam/circle.png" type="Texture" id=1]
 [ext_resource path="res://scenes/GameOver/GameOver.gd" type="Script" id=2]
 [ext_resource path="res://scenes/other resources/november_font.tres" type="DynamicFont" id=3]
-[ext_resource path="res://scenes/Amalgam/attach.wav" type="AudioStream" id=4]
 [ext_resource path="res://scenes/other resources/november_font_big.tres" type="DynamicFont" id=5]
 
 [node name="GameOver" type="Node2D"]
@@ -30,6 +29,7 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="."]
+visible = false
 margin_left = 1.0
 margin_top = 96.0
 margin_right = 201.0
@@ -44,6 +44,7 @@ __meta__ = {
 }
 
 [node name="Continue" type="Label" parent="."]
+visible = false
 margin_left = 0.999969
 margin_top = 166.0
 margin_right = 201.0
@@ -57,5 +58,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ReadySound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
+[node name="ScoreTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="ContinueTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
