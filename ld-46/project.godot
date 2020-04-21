@@ -26,6 +26,7 @@ run/main_scene="res://scenes/Title/Title.tscn"
 boot_splash/image="res://scenes/other resources/splash.png"
 boot_splash/use_filter=false
 config/icon="res://scenes/other resources/icon.png"
+config/windows_native_icon="res://scenes/other resources/icon.ico"
 
 [autoload]
 
